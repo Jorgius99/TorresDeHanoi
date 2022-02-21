@@ -13,6 +13,15 @@ namespace Torres_de_Hanoi
         public int Valor { get; set; }
         public String Valor { get; set; }
         */
+        public int Valor;
 
+        public int getValor()
+        {
+            return Valor;
+        }
+        public void setValor(int Valor)
+        {
+            this.Valor = Valor;
+        }
     }
 }
