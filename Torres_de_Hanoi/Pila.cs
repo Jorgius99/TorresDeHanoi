@@ -19,24 +19,41 @@ namespace Torres_de_Hanoi
         */
 
         /* TODO: Implementar métodos */
-        public Pila()
-        {
+        public int Top { get; set; }
+        public List<Disco> Elementos { get; set; }
 
+        public Pila(int Size, int Top, List<Disco> Elementos)
+        {
+            this.Size = Size;
+            this.Top = Top;
+            this.Elementos = Elementos;
         }
 
         public void push(Disco d)
         {
-
+            Size++;
+            this.Elementos.Add(d);
         }
 
         public Disco pop()
         {
-            return null;
+            Disco final=Elementos.ElementAt(Top);
+            Elementos.RemoveAt(Top);
+            Size--;
+            return final;
         }                
 
         public bool isEmpty()
         {
-            return true;
+            if (Elementos.Count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
     }
