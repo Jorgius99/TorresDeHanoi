@@ -27,7 +27,7 @@ namespace Torres_de_Hanoi
                 b.push(a.pop());
                 m++;
             }
-            else
+            else if(b.Top<a.Top)
             {
                 a.push(b.pop());
                 m++;
@@ -70,11 +70,10 @@ namespace Torres_de_Hanoi
         }
         public int recursivo(int n, Pila ini, Pila fin, Pila aux)
         {
-            m = 0;
+            
             if (n == 1)
             {
                 mover_disco(ini, fin);
-
             }
             else
             {
@@ -84,6 +83,5 @@ namespace Torres_de_Hanoi
             }
             return m;
         }
-
     }
 }
