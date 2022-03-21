@@ -13,7 +13,7 @@ namespace Torres_de_Hanoi
 
             int n = 0;
             int j = 0;
-            Console.WriteLine("Cuantos discos le quieres meter?");
+            Console.WriteLine("Número de discos: ");
             n = Convert.ToInt32(Console.ReadLine());
             Pila ini = new Pila();
             Pila aux = new Pila();
@@ -39,9 +39,6 @@ namespace Torres_de_Hanoi
             {
                 Console.WriteLine("Numero incorrecto");
             }
-            
-            
-
             //Console.WriteLine("Se ha completado el puzle en " + m + " movimientos");
             Console.ReadLine();
         }

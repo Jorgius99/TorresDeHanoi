@@ -36,29 +36,34 @@ namespace Torres_de_Hanoi
 
         public int iterativo(int n, Pila ini, Pila fin, Pila aux)
         {
-            m = 0;
+            
             if(n%2 != 0)
             {
                 while (fin.Size!=n)
                 {
                     mover_disco(ini, fin);
-                    Console.Write("Numero de movimientos: " + m + "\n");
+                    Console.Write("Movimiento: " + m);
+                    Console.Write("\n");
                     mover_disco(ini, aux);
-                    Console.Write("Numero de movimientos: " + m + "\n");
+                    Console.Write("Movimiento: " + m );
+                    Console.Write("\n");
                     mover_disco(aux, fin);
-                    Console.Write("Numero de movimientos: " + m + "\n");
+                    Console.Write("Movimiento: " + m );
+                    Console.Write("\n");
                 }
             }
             else
-            {
-                
+            { 
                     mover_disco(ini, aux);
-                    Console.Write("Numero de movimientos: " + m + "\n");
+                    Console.Write("Movimiento: " + m );
+                    Console.Write("\n");
                     mover_disco(ini, fin);
-                    Console.Write("Numero de movimientos: " + m + "\n");
+                    Console.Write("Movimiento: " + m );
+                    Console.Write("\n");
                     mover_disco(aux, fin);
-                    Console.Write("Numero de movimientos: " + m + "\n");
-                
+                    Console.Write("Movimiento: " + m );
+                    Console.Write("\n");
+
             }
             
             return m;
