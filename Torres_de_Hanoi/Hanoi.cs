@@ -8,30 +8,76 @@ namespace Torres_de_Hanoi
 {
     class Hanoi
     {
+        private int m=0;
         /*TODO: Implementar métodos*/
         public void mover_disco(Pila a, Pila b)
         {
-            if (a.Top < b.Top)
+            if (a.isEmpty())
             {
-                if (a.Size != 0)
-                {
-                    Disco anyadir = a.pop();
-                    b.push(anyadir);
-                }
+                a.push(b.pop());
+                m++;
+            }
+            else if (b.isEmpty())
+            {
+                b.push(a.pop());
+                m++;
+            }
+            else if (a.Top < b.Top)
+            {
+                b.push(a.pop());
+                m++;
             }
             else
             {
-                if (b.Size != 0)
-                {
-                    Disco anyadir1 = b.pop();
-                    a.push(anyadir1);
-                }
+                a.push(b.pop());
+                m++;
             }
         }
 
         public int iterativo(int n, Pila ini, Pila fin, Pila aux)
         {
-            return 0;
+            m = 0;
+            if(n%2 != 0)
+            {
+                while (fin.Size!=n)
+                {
+                    mover_disco(ini, fin);
+                    Console.Write("Numero de movimientos: " + m + "\n");
+                    mover_disco(ini, aux);
+                    Console.Write("Numero de movimientos: " + m + "\n");
+                    mover_disco(aux, fin);
+                    Console.Write("Numero de movimientos: " + m + "\n");
+                }
+            }
+            else
+            {
+                
+                    mover_disco(ini, aux);
+                    Console.Write("Numero de movimientos: " + m + "\n");
+                    mover_disco(ini, fin);
+                    Console.Write("Numero de movimientos: " + m + "\n");
+                    mover_disco(aux, fin);
+                    Console.Write("Numero de movimientos: " + m + "\n");
+                
+            }
+            
+            return m;
+        }
+        public int recursivo(int n, Pila ini, Pila fin, Pila aux)
+        {
+            m = 0;
+            if (n == 1)
+            {
+                mover_disco(ini, fin);
+
+            }
+            else
+            {
+                recursivo(n - 1, ini, aux, fin);
+                mover_disco(ini, fin);
+                recursivo(n - 1, aux, fin, ini);
+            }
+            return m;
         }
 
     }
